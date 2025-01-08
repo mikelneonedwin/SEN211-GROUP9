@@ -1,0 +1,19 @@
+---
+import type { JSX } from "astro/jsx-runtime";
+
+interface Props {
+  title: string;
+  name: string;
+  input?: Omit<astroHTML.JSX.InputHTMLAttributes, "name"> & {
+    type: astroHTML.JSX.HTMLInputTypeAttribute;
+  };
+  textarea?: Omit<JSX.TextareaHTMLAttributes, "name">;
+}
+const { title, name, input, textarea } = Astro.props;
+---
+
+<label for={name} class="space-y-[22px] booking-label">
+  <span class="font-medium text-xl md:text-[32px] leading-[43px]">{title}</span>
+  {input && <input name={name} {...input} />}
+  {textarea && <textarea name={name} {...textarea} />}
+</label>

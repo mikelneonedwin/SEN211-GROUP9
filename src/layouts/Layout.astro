@@ -1,0 +1,23 @@
+---
+import logo from "../assets/icon.png?url";
+import Header from "../components/header.astro";
+import "../index.css";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href={logo} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <slot name="head" />
+  </head>
+  <body>
+    <div class="py-10 lg:py-[66px]">
+      <Header />
+      <slot />
+    </div>
+  </body>
+</html>

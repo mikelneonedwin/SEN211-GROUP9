@@ -1,0 +1,27 @@
+---
+import Layout from "../layouts/Layout.astro";
+import H1 from "../components/h1.astro";
+import Card from "../components/card.astro";
+---
+
+<Layout>
+  <div class="indent">
+    <H1>Counselling: Fostering Academic Excellence</H1>
+    <div class="mt-10">
+      <p class="font-inter text-[24px] leading-[29px]">Categories</p>
+      <div
+        class="grid sm:grid-cols-2 md:grid-rows-2 md:grid-cols-3 lg:grid-cols-4 gap-4 justify-center mt-6"
+      >
+        <Card href="./lecture/index.html"> Counselling Lecture </Card>
+        <Card href="./forum/index.html">
+          Community Forum:
+          <br /><span class="text-sm font-light">Share your experience</span>
+        </Card>
+        <Card href="./booking/index.html"> Book a Session </Card>
+        <Card class="md:col-span-3 lg:col-span-1" href="./performance/index.html">
+          Performance
+        </Card>
+      </div>
+    </div>
+  </div>
+</Layout>

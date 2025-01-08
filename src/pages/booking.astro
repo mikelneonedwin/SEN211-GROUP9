@@ -1,0 +1,107 @@
+---
+import Divider from "../components/divider.astro";
+import Layout from "../layouts/Layout.astro";
+import InputField from "../components/inputField.astro";
+import H1 from "../components/h1.astro";
+---
+
+<Layout>
+  <div class="indent mt-10">
+    <H1>BOOKING</H1>
+    <p class="text-xl">Book a counselling session with Prof. Confidence</p>
+  </div>
+  <Divider />
+  <div class="indent">
+    <h2 class="font-semibold text-[40px] leading-[53px] text-primary">
+      Counsellor's Profile:
+    </h2>
+    <div class="m-4 font-semibold text-xl space-y-1">
+      <h3 class="text-[36px] mb-2">Banny Confidence</h3>
+      <p>HOD Faculty of Computing</p>
+      <p>University Of Uyo.</p>
+      <a
+        href="mailto:bannyconfidence@gmail.com"
+        class="no-underline hover:underline text-sm text-white font-normal tracking-wider"
+        >bannyconfidence@gmail.com</a
+      >
+    </div>
+  </div>
+  <Divider />
+  <form class="indent flex flex-col gap-10 md:gap-y-[48px]">
+    <h4 class="text-[36px] leading-[48px] text-primary font-medium">
+      Booking Form
+    </h4>
+    <div class="grid md:grid-cols-2 gap-10">
+      <InputField
+        name="first-name"
+        title="First Name"
+        input={{
+          type: "text",
+          required: true,
+        }}
+      />
+      <InputField
+        name="last-name"
+        title="Last Name"
+        input={{
+          type: "text",
+          required: true,
+        }}
+      />
+    </div>
+    <InputField
+      name="email"
+      title="Email Address"
+      input={{
+        type: "email",
+        required: true,
+      }}
+    />
+    <InputField
+      name="tel"
+      title="Phone Number"
+      input={{
+        type: "tel",
+        required: true,
+      }}
+    />
+    <InputField
+      name="challenge"
+      title="In Less than 200 Words Describe The Academic Challenges you Currently Face"
+      textarea={{
+        required: true,
+        maxlength: 1200,
+      }}
+    />
+    <div class="flex justify-center">
+      <button
+        type="submit"
+        class="bg-primary w-[447px] h-[56px] rounded-[8px] [box-shadow:inset_0px_0px_2px_rgba(255,255,255,0.5)]"
+      >
+        Book a Session
+      </button>
+    </div>
+  </form>
+
+  <script>
+    const formElement = document.querySelector("form") as HTMLFormElement;
+    formElement.onsubmit = (e) => {
+      e.preventDefault();
+      const form = new FormData(formElement);
+
+      const firstName = encodeURIComponent(form.get("first-name") as string);
+      const lastName = encodeURIComponent(form.get("last-name") as string);
+      const email = encodeURIComponent(form.get("email") as string);
+      const phone = encodeURIComponent(form.get("tel") as string);
+      const challenge = encodeURIComponent(form.get("challenge") as string);
+      const subject = encodeURIComponent("Book Counselling");
+      const body =
+        `First Name: ${firstName}%0A` +
+        `Last Name: ${lastName}%0A` +
+        `Email: ${email}%0A` +
+        `Phone Number: ${phone}%0A` +
+        `Challenge: ${challenge}`;
+      window.location.href = `mailto:bannyconfidence@gmail.com?subject=${subject}&body=${body}`;
+    };
+  </script>
+</Layout>
