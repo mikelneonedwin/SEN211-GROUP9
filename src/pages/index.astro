@@ -5,6 +5,9 @@ import Card from "../components/card.astro";
 ---
 
 <Layout>
+  <Fragment name="head">
+    <title>Group 9</title>
+  </Fragment>
   <div class="indent">
     <H1>Counselling: Fostering Academic Excellence</H1>
     <div class="mt-10">
@@ -18,7 +21,10 @@ import Card from "../components/card.astro";
           <br /><span class="text-sm font-light">Share your experience</span>
         </Card>
         <Card href="./booking/index.html"> Book a Session </Card>
-        <Card class="md:col-span-3 lg:col-span-1" href="./performance/index.html">
+        <Card
+          class="md:col-span-3 lg:col-span-1"
+          href="./performance/index.html"
+        >
           Performance
         </Card>
       </div>
