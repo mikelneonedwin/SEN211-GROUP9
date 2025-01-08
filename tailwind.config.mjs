@@ -10,6 +10,7 @@ export default {
         afacad: ["Afacad", "serif"],
         "open-sans": ["Open Sans", "serif"],
         inter: ["Inter", "serif"],
+        roboto: ["Roboto", "serif"]
       },
     },
   },
