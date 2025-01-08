@@ -1,0 +1,33 @@
+---
+interface Prop {
+  score: number;
+  total: number;
+  course: string;
+}
+const { score, total, course } = Astro.props;
+const average = (score / total) * 100;
+
+let className: string, text: string;
+if (+average >= 80) {
+  className = "text-[#05C612]";
+  text = "Great";
+} else if (+average >= 50) {
+  className = "text-[#EFE009]";
+  text = "Good";
+} else {
+  className = "text-[#C61805]";
+  text = "Poor";
+}
+const time = new Date();
+---
+
+<span>
+  {time.getDate().toString().padStart(2, "0")} / {
+    (time.getMonth() + 1).toString().padStart(2, "0")
+  } / {time.getFullYear().toString().slice(2)}
+</span>
+<span>{course}</span>
+<span>{score}/{total}</span>
+<span class={className}>
+  {text}
+</span>

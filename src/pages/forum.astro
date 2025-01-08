@@ -1,0 +1,23 @@
+---
+import Layout from "../layouts/Layout.astro";
+import H1 from "../components/h1.astro";
+import { experiences } from "../scripts/constants";
+import Experience from "../components/experience.astro";
+---
+
+<Layout>
+  <Fragment name="head">
+    <title>Forum</title>
+  </Fragment>
+  <div class="dent mt-4">
+    <div>
+      <H1>Community Forum : Share Your Experience</H1>
+      <p class="text-white text-xl">
+        Share Your Experience So far to Encourage Others And Enlighten
+      </p>
+    </div>
+    <div id="outsidebox" class="lg:pt-5 mt-10">
+      {experiences.map((experience) => <Experience {...experience} />)}
+    </div>
+  </div>
+</Layout>

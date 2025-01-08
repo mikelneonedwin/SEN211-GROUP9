@@ -1,111 +1,172 @@
 ---
 import learnify from "../assets/learnify.png?url";
+import Layout from "../layouts/Layout.astro";
+import Divider from "../components/divider.astro";
+import { testResults, calcDuration } from "../scripts/constants";
+import StatCard from "../components/statCard.astro";
+import Row from "../components/row.astro";
+const { score, total, course, duration } = testResults[0];
+const average = ((score / total) * 100).toFixed();
+const timeTaken = calcDuration(duration);
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<Layout>
+  <Fragment name="head">
     <title>Performance</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="./performance.css" />
-    <script type="module" src="./performance.js"></script>
-  </head>
-  <body>
-    <div class="mx-4 md:mx-10 mt-4 pb-4">
-      <div class="flex justify-between items-center">
-        <img
-          src={learnify}
-          class="max-w-[200px]"
-          alt="Learnify logo"
-        />
-        <div id="user-slug">
-          <img
-            class="hidden size-[50px] rounded-full"
-            alt="your profile image"
-          />
-          <div
-            class="hidden bg-[rgb(61,61,61)] rounded-full size-[50px] text-white font-bold font-afacad items-center justify-center text-2xl"
-          ></div>
+    <script is:inline src="/chart.js"></script>
+  </Fragment>
+  <header
+    class="flex flex-col gap-4 lg:gap-0 lg:flex-row lg:items-end justify-between dent mt-14"
+  >
+    <h1
+      class="font-open-sans font-bold text-[32px] leading-[44px] [leading-trim:both] [text-edge:cap] text-white"
+    >
+      Student Performance Evaluation
+    </h1>
+    <a
+      id="headerBtn"
+      href="/"
+      class="no-underline text-black font-afacad font-bold text-xl cursor-pointer inline-block p-[10px_20px] bg-[rgb(255,173,50)] rounded-[4px] [transition:background-color_0.3s,_box-shadow_0.3s] [box-shadow:0px_2px_2px_rgba(0,0,0,0.2)] max-w-fit hover:bg-[#e69500] hover:[box-shadow:0px_4px_4px_rgba(0,0,0,0.2)] focus:bg-[#cc8400] focus:[box-shadow:0px_6px_6px_rgba(0,0,0,0.2)]"
+      >Home</a
+    >
+  </header>
+  <main>
+    <div
+      class="space-y-8 lg:space-y-8 w-full flex-col xl:flex-row xl:items-center xl:grid xl:grid-cols-2 xl:gap-0 gap-4"
+    >
+      <div
+        id="performance-table"
+        class="flex lg:w-auto items-start flex-col mt-8 dent"
+      >
+        <h4
+          class="font-afacad text-[48px] font-bold leading-[35px] tracking-[-0.03em] text-left text-primary"
+        >
+          John Doe
+        </h4>
+        <table id="performance">
+          <tbody>
+            <tr>
+              <td>Your score</td>
+              <td>
+                {score}/{total}
+              </td>
+            </tr>
+            <tr>
+              <td>Your average</td>
+              <td>{average}%</td>
+            </tr>
+            <tr>
+              <td>Duration</td>
+              <td>{timeTaken}</td>
+            </tr>
+            <tr>
+              <td>Course</td>
+              <td>{course}</td>
+            </tr>
+            <tr>
+              <td>Questions</td>
+              <td>{total}</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="md:space-x-[15px] mt-2 flex md:block flex-col gap-2">
+          <span
+            class="font-afacad font-semibold text-[24px] leading-[32px] text-primary"
+          >
+            Quiz Evaluation:
+          </span>
+          <span
+            class="font-afacad font-medium text-[24px] leading-[32px] tracking-[-0.02em] text-white"
+          >
+            Attempted: {total}
+          </span>
+          <span
+            class="font-afacad font-medium text-[24px] leading-[32px] tracking-[-0.02em] text-white"
+          >
+            Passed: {score}
+          </span>
+          <span
+            class="font-afacad font-medium text-[24px] leading-[32px] tracking-[-0.02em] text-white"
+          >
+            Failed: {total - score}
+          </span>
         </div>
       </div>
-      <header class="flex flex-col lg:flex-row lg:items-end justify-between">
-        <h1
-          class="font-open-sans font-bold text-[32px] leading-[44px] [leading-trim:both] [text-edge:cap] text-white"
-        >
-          Student Performance Evaluation
-        </h1>
-        <a
-          id="headerBtn"
-          href="#"
-          class="no-underline text-black font-afacad font-bold text-xl cursor-pointer inline-block p-[10px_20px] bg-[rgb(255,173,50)] rounded-[4px] [transition:background-color_0.3s,_box-shadow_0.3s] [box-shadow:0px_2px_2px_rgba(0,0,0,0.2)] max-w-fit hover:bg-[#e69500] hover:[box-shadow:0px_4px_4px_rgba(0,0,0,0.2)] focus:bg-[#cc8400] focus:[box-shadow:0px_6px_6px_rgba(0,0,0,0.2)]"
-        ></a>
-        <script>
-          const headerBtn = /** @type {HTMLAnchorElement} */ (
-            document.querySelector("#headerBtn")
-          );
-          const url = new URL(location.href);
-          if (url.searchParams.has("back")) {
-            headerBtn.innerText = "Retake Quiz";
-            headerBtn.href = url.searchParams.get("back");
-          } else {
-            headerBtn.innerText = "Home";
-            headerBtn.href = "/";
-          }
-        </script>
-      </header>
-      <main>
-        <div
-          class="space-y-8 lg:space-y-8 w-full flex-col xl:flex-row xl:items-center xl:grid xl:grid-cols-2 xl:gap-0 gap-4 unhide-table"
-        >
-          <div
-            id="performance-table"
-            class="flex w-full lg:w-auto items-start flex-col"
-          ></div>
-          <div
-            class="flex flex-col lg:flex-row gap-4 lg:gap-0 items-center justify-evenly"
-            id="stat-cards"
-          ></div>
-        </div>
-        <hr
-          class="border-[1px_solid_white] mt-[35px] unhide-table unhide-history"
+      <div
+        class="flex flex-col lg:flex-row gap-4 lg:gap-0 items-center justify-evenly xl:-translate-x-14"
+        id="stat-cards"
+      >
+        <StatCard
+          content={`${average}%`}
+          title="Average"
+          data={{
+            "data-max": 100,
+            "data-value": +average,
+          }}
         />
-        <div class="unhide-history">
-          <h4
-            class="font-afacad font-bold text-[24px] leading-[32px] text-primary"
-          >
-            Performance History
-          </h4>
+        <StatCard
+          content={`${score}/${total}`}
+          title="Score"
+          data={{
+            "data-max": total,
+            "data-value": score,
+          }}
+        />
+        <StatCard content={calcDuration(duration)} title="Duration" />
+      </div>
+    </div>
+    <Divider />
+    <div class="dent">
+      <h4 class="font-afacad font-bold text-[24px] leading-[32px] text-primary">
+        Performance History
+      </h4>
 
-          <div class="w-full overflow-x-auto [scrollbar-width:thin]">
-            <div
-              class="bg-[#1D1F21] rounded-[12px] flex flex-col gap-y-4 min-w-[1272px]"
-            >
-              <div
-                class="font-afacad font-semibold text-[24px] leading-[32px] text-white grid grid-cols-4 text-center pt-[17px]"
-              >
-                <span>Date</span>
-                <span>Course</span>
-                <span>Scores</span>
-                <span>Remark</span>
-              </div>
-              <hr
-                class="border-[0.5px_white_solid] w-[calc(100%-20px)] mx-[10px]"
-              />
-              <div
-                class="font-afacad text-[24px] leading-[32px] text-white grid grid-cols-4 gap-y-[25px] my-[21px] text-center"
-                id="history-fields"
-              ></div>
-            </div>
+      <div class="w-full overflow-x-auto [scrollbar-width:thin] mt-4">
+        <div
+          class="bg-[#1D1F21] rounded-[12px] flex flex-col gap-y-4 min-w-[1272px]"
+        >
+          <div
+            class="font-afacad font-semibold text-[24px] leading-[32px] text-white grid grid-cols-4 text-center pt-[17px]"
+          >
+            <span>Date</span>
+            <span>Course</span>
+            <span>Scores</span>
+            <span>Remark</span>
+          </div>
+          <hr
+            class="border-[0.5px_white_solid] w-[calc(100%-20px)] mx-[10px]"
+          />
+          <div
+            class="font-afacad text-[24px] leading-[32px] text-white grid grid-cols-4 gap-y-[25px] my-[21px] text-center"
+            id="history-fields"
+          >
+            {testResults.slice(1).map((result) => <Row {...result} />)}
           </div>
         </div>
-      </main>
+      </div>
     </div>
-  </body>
-</html>
+  </main>
+
+  <script is:inline>
+    Array.from(document.querySelectorAll("canvas[id]")).forEach((canvas) => {
+      const max = canvas.getAttribute("data-max");
+      const value = canvas.getAttribute("data-value");
+      if (max && value) {
+        new Chart(canvas, {
+          type: "doughnut",
+          data: {
+            datasets: [
+              {
+                data: [+value, +max - +value],
+                backgroundColor: ["#FF9500", "#141617"],
+                hoverOffset: 4,
+                borderWidth: 0,
+                borderColor: "transparent",
+              },
+            ],
+          },
+        });
+      }
+    });
+  </script>
+</Layout>

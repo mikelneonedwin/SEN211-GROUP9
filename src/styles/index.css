@@ -10,7 +10,7 @@ body {
   @apply bg-black text-white font-afacad;
 }
 
-.indent {
+.dent {
   @apply mx-5 lg:mx-[52px];
 }
 
@@ -33,4 +33,14 @@ body {
 .booking-label > textarea {
   min-height: 125px;
   max-height: 235px;
+}
+
+#performance td {
+  padding: 0.25rem 0.75rem;
+  font-family: Afacad, sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 35px;
+  letter-spacing: -0.03em;
+  color: #fff;
 }

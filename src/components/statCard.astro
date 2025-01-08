@@ -1,0 +1,28 @@
+---
+interface Props {
+  title: string;
+  content: string;
+  data?: {
+    "data-value": number;
+    "data-max": number;
+  };
+}
+const { title, content, data } = Astro.props;
+const id = Math.random().toString();
+---
+
+<div
+  class="size-[251px] box-border flex items-center justify-center p-[21px_15px] gap-[32px] bg-[#1D1F21] rounded-[20px] xl:rounded-none relative"
+>
+  <span
+    class="absolute font-afacad font-semibold text-[24px] leading-[32px] text-white top-3 left-0 right-0 w-full text-center inline-block"
+  >
+    {title}
+  </span>
+  <div
+    class="size-[125px] relative before:content-[''] before:size-full before:bg-black before:opacity-30 before:border-[2px_solid_black] before:rounded-full before:absolute before:-z-10 z-0 font-afacad text-semibold text-white flex justify-center items-center"
+  >
+    <canvas id={id} {...data} class="-mt-2.5"></canvas>
+    <span class="absolute capitalize text-lg">{content}</span>
+  </div>
+</div>
