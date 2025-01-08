@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/png" href="/assets/icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="/assets/booking.css" />
+  </head>
+  <body>
+    <div class="py-10 lg:py-[66px]">
+      <div class="flex items-center justify-between dent">
+        <figure>
+          <img
+            src="/assets/learnify.png"
+            class="max-w-[123px] max-h-[45px]"
+            alt="Learnify logo"
+          />
+        </figure>
+        <div
+          class="size-[45px] rounded-full bg-primary text-2xl flex items-center justify-center font-bold text-black"
+        >
+          JD
+        </div>
+      </div>
+      <title>Performance</title>
+      <script src="/chart.js"></script>
+      <header
+        class="flex flex-col gap-4 lg:gap-0 lg:flex-row lg:items-end justify-between dent mt-14"
+      >
+        <h1
+          class="font-open-sans font-bold text-[32px] leading-[44px] [leading-trim:both] [text-edge:cap] text-white"
+        >
+          Student Performance Evaluation
+        </h1>
+        <a
+          id="headerBtn"
+          href="/"
+          class="no-underline text-black font-afacad font-bold text-xl cursor-pointer inline-block p-[10px_20px] bg-[rgb(255,173,50)] rounded-[4px] [transition:background-color_0.3s,_box-shadow_0.3s] [box-shadow:0px_2px_2px_rgba(0,0,0,0.2)] max-w-fit hover:bg-[#e69500] hover:[box-shadow:0px_4px_4px_rgba(0,0,0,0.2)] focus:bg-[#cc8400] focus:[box-shadow:0px_6px_6px_rgba(0,0,0,0.2)]"
+          >Home</a
+        >
+      </header>
+      <main>
+        <div
+          class="space-y-8 lg:space-y-8 w-full flex-col xl:flex-row xl:items-center xl:grid xl:grid-cols-2 xl:gap-0 gap-4"
+        >
+          <div
+            id="performance-table"
+            class="flex lg:w-auto items-start flex-col mt-8 dent"
+          >
+            <h4
+              class="font-afacad text-[48px] font-bold leading-[35px] tracking-[-0.03em] text-left text-primary"
+            >
+              John Doe
+            </h4>
+            <table id="performance">
+              <tbody>
+                <tr>
+                  <td>Your score</td>
+                  <td>85/100</td>
+                </tr>
+                <tr>
+                  <td>Your average</td>
+                  <td>85%</td>
+                </tr>
+                <tr>
+                  <td>Duration</td>
+                  <td>01:00</td>
+                </tr>
+                <tr>
+                  <td>Course</td>
+                  <td>Mathematics</td>
+                </tr>
+                <tr>
+                  <td>Questions</td>
+                  <td>100</td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="md:space-x-[15px] mt-2 flex md:block flex-col gap-2">
+              <span
+                class="font-afacad font-semibold text-[24px] leading-[32px] text-primary"
+              >
+                Quiz Evaluation:
+              </span>
+              <span
+                class="font-afacad font-medium text-[24px] leading-[32px] tracking-[-0.02em] text-white"
+              >
+                Attempted: 100
+              </span>
+              <span
+                class="font-afacad font-medium text-[24px] leading-[32px] tracking-[-0.02em] text-white"
+              >
+                Passed: 85
+              </span>
+              <span
+                class="font-afacad font-medium text-[24px] leading-[32px] tracking-[-0.02em] text-white"
+              >
+                Failed: 15
+              </span>
+            </div>
+          </div>
+          <div
+            class="flex flex-col lg:flex-row gap-4 lg:gap-0 items-center justify-evenly xl:-translate-x-14"
+            id="stat-cards"
+          >
+            <div
+              class="size-[251px] box-border flex items-center justify-center p-[21px_15px] gap-[32px] bg-[#1D1F21] rounded-[20px] xl:rounded-none relative"
+            >
+              <span
+                class="absolute font-afacad font-semibold text-[24px] leading-[32px] text-white top-3 left-0 right-0 w-full text-center inline-block"
+              >
+                Average
+              </span>
+              <div
+                class="size-[125px] relative before:content-[''] before:size-full before:bg-black before:opacity-30 before:border-[2px_solid_black] before:rounded-full before:absolute before:-z-10 z-0 font-afacad text-semibold text-white flex justify-center items-center"
+              >
+                <canvas
+                  id="0.034211475883981546"
+                  data-max="100"
+                  data-value="85"
+                  class="-mt-2.5"
+                ></canvas>
+                <span class="absolute capitalize text-lg">85%</span>
+              </div>
+            </div>
+            <div
+              class="size-[251px] box-border flex items-center justify-center p-[21px_15px] gap-[32px] bg-[#1D1F21] rounded-[20px] xl:rounded-none relative"
+            >
+              <span
+                class="absolute font-afacad font-semibold text-[24px] leading-[32px] text-white top-3 left-0 right-0 w-full text-center inline-block"
+              >
+                Score
+              </span>
+              <div
+                class="size-[125px] relative before:content-[''] before:size-full before:bg-black before:opacity-30 before:border-[2px_solid_black] before:rounded-full before:absolute before:-z-10 z-0 font-afacad text-semibold text-white flex justify-center items-center"
+              >
+                <canvas
+                  id="0.6282960616322997"
+                  data-max="100"
+                  data-value="85"
+                  class="-mt-2.5"
+                ></canvas>
+                <span class="absolute capitalize text-lg">85/100</span>
+              </div>
+            </div>
+            <div
+              class="size-[251px] box-border flex items-center justify-center p-[21px_15px] gap-[32px] bg-[#1D1F21] rounded-[20px] xl:rounded-none relative"
+            >
+              <span
+                class="absolute font-afacad font-semibold text-[24px] leading-[32px] text-white top-3 left-0 right-0 w-full text-center inline-block"
+              >
+                Duration
+              </span>
+              <div
+                class="size-[125px] relative before:content-[''] before:size-full before:bg-black before:opacity-30 before:border-[2px_solid_black] before:rounded-full before:absolute before:-z-10 z-0 font-afacad text-semibold text-white flex justify-center items-center"
+              >
+                <canvas id="0.23796195767011508" class="-mt-2.5"></canvas>
+                <span class="absolute capitalize text-lg">01:00</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr
+          class="border-[0.5px] border-solid border-white opacity-40 my-6 w-[95%] mx-auto"
+        />
+        <div class="dent">
+          <h4
+            class="font-afacad font-bold text-[24px] leading-[32px] text-primary"
+          >
+            Performance History
+          </h4>
+          <div class="w-full overflow-x-auto [scrollbar-width:thin] mt-4">
+            <div
+              class="bg-[#1D1F21] rounded-[12px] flex flex-col gap-y-4 min-w-[1272px]"
+            >
+              <div
+                class="font-afacad font-semibold text-[24px] leading-[32px] text-white grid grid-cols-4 text-center pt-[17px]"
+              >
+                <span>Date</span> <span>Course</span> <span>Scores</span>
+                <span>Remark</span>
+              </div>
+              <hr
+                class="border-[0.5px_white_solid] w-[calc(100%-20px)] mx-[10px]"
+              />
+              <div
+                class="font-afacad text-[24px] leading-[32px] text-white grid grid-cols-4 gap-y-[25px] my-[21px] text-center"
+                id="history-fields"
+              >
+                <span> 08 / 01 / 25 </span> <span>Physics</span>
+                <span>78/100</span> <span class="text-[#EFE009]"> Good </span
+                ><span> 08 / 01 / 25 </span> <span>Chemistry</span>
+                <span>92/100</span> <span class="text-[#05C612]"> Great </span
+                ><span> 08 / 01 / 25 </span> <span>Biology</span>
+                <span>65/100</span> <span class="text-[#EFE009]"> Good </span
+                ><span> 08 / 01 / 25 </span> <span>English Literature</span>
+                <span>88/100</span> <span class="text-[#05C612]"> Great </span
+                ><span> 08 / 01 / 25 </span> <span>History</span>
+                <span>74/100</span> <span class="text-[#EFE009]"> Good </span
+                ><span> 08 / 01 / 25 </span> <span>Geography</span>
+                <span>91/100</span> <span class="text-[#05C612]"> Great </span
+                ><span> 08 / 01 / 25 </span> <span>Computer Science</span>
+                <span>83/100</span> <span class="text-[#05C612]"> Great </span
+                ><span> 08 / 01 / 25 </span> <span>Economics</span>
+                <span>80/100</span> <span class="text-[#05C612]"> Great </span
+                ><span> 08 / 01 / 25 </span> <span>Philosophy</span>
+                <span>77/100</span> <span class="text-[#EFE009]"> Good </span
+                ><span> 08 / 01 / 25 </span> <span>Political Science</span>
+                <span>89/100</span> <span class="text-[#05C612]"> Great </span
+                ><span> 08 / 01 / 25 </span> <span>Art History</span>
+                <span>93/100</span> <span class="text-[#05C612]"> Great </span
+                ><span> 08 / 01 / 25 </span> <span>Music Theory</span>
+                <span>84/100</span> <span class="text-[#05C612]"> Great </span
+                ><span> 08 / 01 / 25 </span> <span>Environmental Science</span>
+                <span>79/100</span> <span class="text-[#EFE009]"> Good </span
+                ><span> 08 / 01 / 25 </span> <span>Sociology</span>
+                <span>68/100</span> <span class="text-[#EFE009]"> Good </span
+                ><span> 08 / 01 / 25 </span> <span>Psychology</span>
+                <span>86/100</span> <span class="text-[#05C612]"> Great </span
+                ><span> 08 / 01 / 25 </span> <span>Statistics</span>
+                <span>90/100</span> <span class="text-[#05C612]"> Great </span
+                ><span> 08 / 01 / 25 </span> <span>Anthropology</span>
+                <span>82/100</span> <span class="text-[#05C612]"> Great </span
+                ><span> 08 / 01 / 25 </span> <span>Law</span>
+                <span>73/100</span> <span class="text-[#EFE009]"> Good </span
+                ><span> 08 / 01 / 25 </span> <span>Medicine</span>
+                <span>94/100</span> <span class="text-[#05C612]"> Great </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <script>
+        Array.from(document.querySelectorAll("canvas[id]")).forEach(
+          (canvas) => {
+            const max = canvas.getAttribute("data-max");
+            const value = canvas.getAttribute("data-value");
+            if (max && value) {
+              new Chart(canvas, {
+                type: "doughnut",
+                data: {
+                  datasets: [
+                    {
+                      data: [+value, +max - +value],
+                      backgroundColor: ["#FF9500", "#141617"],
+                      hoverOffset: 4,
+                      borderWidth: 0,
+                      borderColor: "transparent",
+                    },
+                  ],
+                },
+              });
+            }
+          }
+        );
+      </script>
+    </div>
+  </body>
+</html>
