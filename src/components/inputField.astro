@@ -12,7 +12,7 @@ interface Props {
 const { title, name, input, textarea } = Astro.props;
 ---
 
-<label for={name} class="space-y-[22px] booking-label">
+<label for={name} class="flex flex-col gap-y-[22px] booking-label">
   <span class="font-medium text-xl md:text-[32px] leading-[43px]">{title}</span>
   {input && <input name={name} {...input} />}
   {textarea && <textarea name={name} {...textarea} />}

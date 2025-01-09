@@ -86,17 +86,17 @@ import H1 from "../components/h1.astro";
     </div>
   </form>
 
-  <script>
-    const formElement = document.querySelector("form") as HTMLFormElement;
+  <script is:inline>
+    const formElement = document.querySelector("form")
     formElement.onsubmit = (e) => {
       e.preventDefault();
       const form = new FormData(formElement);
 
-      const firstName = encodeURIComponent(form.get("first-name") as string);
-      const lastName = encodeURIComponent(form.get("last-name") as string);
-      const email = encodeURIComponent(form.get("email") as string);
-      const phone = encodeURIComponent(form.get("tel") as string);
-      const challenge = encodeURIComponent(form.get("challenge") as string);
+      const firstName = encodeURIComponent(form.get("first-name"));
+      const lastName = encodeURIComponent(form.get("last-name"));
+      const email = encodeURIComponent(form.get("email"));
+      const phone = encodeURIComponent(form.get("tel"));
+      const challenge = encodeURIComponent(form.get("challenge"));
       const subject = encodeURIComponent("Book Counselling");
       const body =
         `First Name: ${firstName}%0A` +

@@ -1,17 +1,17 @@
 ---
 import logo from "../assets/icon.png?url";
 import Header from "../components/header.astro";
-import "../styles/index.css";
+import inlineCSS from "../styles/index.css?inline";
 ---
 
-<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href={logo} />
+    <link rel="icon" type="image/png" href={logo} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" id="css" href={`data:text/css;charset=utf-8,${encodeURIComponent(inlineCSS)}`} />
     <slot name="head" />
   </head>
   <body>
