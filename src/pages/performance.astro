@@ -1,18 +1,16 @@
 ---
-import learnify from "../assets/learnify.png?url";
-import Layout from "../layouts/Layout.astro";
 import Divider from "../components/divider.astro";
-import { testResults, calcDuration } from "../scripts/constants";
-import StatCard from "../components/statCard.astro";
 import Row from "../components/row.astro";
+import StatCard from "../components/statCard.astro";
+import Layout from "../layouts/Layout.astro";
+import { calcDuration, testResults } from "../scripts/constants";
 const { score, total, course, duration } = testResults[0];
 const average = ((score / total) * 100).toFixed();
 const timeTaken = calcDuration(duration);
 ---
 
-<Layout>
-  <Fragment name="head">
-    <title>Performance</title>
+<Layout name="Performance">
+  <Fragment slot="head">
     <script is:inline src="/chart.js"></script>
   </Fragment>
   <header

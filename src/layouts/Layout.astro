@@ -2,6 +2,10 @@
 import logo from "../assets/icon.png?url";
 import Header from "../components/header.astro";
 import inlineCSS from "../styles/index.css?inline";
+interface Props {
+  name: string;
+}
+const { name } = Astro.props;
 ---
 
 <html lang="en">
@@ -11,8 +15,13 @@ import inlineCSS from "../styles/index.css?inline";
     <link rel="icon" type="image/png" href={logo} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" id="css" href={`data:text/css;charset=utf-8,${encodeURIComponent(inlineCSS)}`} />
+    <link
+      rel="stylesheet"
+      id="css"
+      href={`data:text/css;charset=utf-8,${encodeURIComponent(inlineCSS)}`}
+    />
     <slot name="head" />
+    <title>{name}</title>
   </head>
   <body>
     <div class="py-10 lg:py-[66px]">

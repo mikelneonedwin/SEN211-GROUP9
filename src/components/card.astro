@@ -7,10 +7,7 @@ const { href, class: className } = Astro.props;
 ---
 
 <div
-  class:list={[
-    "box-border relative p-[16px_15px] pb-[55px] gap-[27px] bg-[#1D1F21] rounded-[12px] max-w-[280px] md:[max-width:none] lg:max-w-[280px] min-h-[173px]",
-    className ? className : "",
-  ]}
+  class={`box-border relative p-[16px_15px] pb-[55px] gap-[27px] bg-[#1D1F21] rounded-[12px] max-w-full w-[90vw] sm:w-auto sm:max-w-[280px] md:[max-width:none] lg:max-w-[280px] xl:max-w-full min-h-[173px] ${className ? className : ""}`}
 >
   <div class="flex flex-col items-start p-0 gap-[11px] min-h-[58px] w-full">
     <svg

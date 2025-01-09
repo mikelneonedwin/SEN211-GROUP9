@@ -5,10 +5,7 @@ import InputField from "../components/inputField.astro";
 import H1 from "../components/h1.astro";
 ---
 
-<Layout>
-  <Fragment name="head">
-    <title>Booking</title>
-  </Fragment>
+<Layout name="Booking">
   <div class="dent mt-10">
     <H1>BOOKING</H1>
     <p class="text-xl">Book a counselling session with Prof. Confidence</p>
@@ -87,7 +84,7 @@ import H1 from "../components/h1.astro";
   </form>
 
   <script is:inline>
-    const formElement = document.querySelector("form")
+    const formElement = document.querySelector("form");
     formElement.onsubmit = (e) => {
       e.preventDefault();
       const form = new FormData(formElement);
