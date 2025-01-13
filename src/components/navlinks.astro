@@ -1,0 +1,13 @@
+---
+import Link from "./link.astro"
+interface Props {
+  class?: string
+}
+const { class: className } = Astro.props;
+---
+<div class={className}>
+    <Link href="/">Home</Link>
+    <Link href="/performance/index.html">Performance</Link>
+    <Link href="/forum/index.html">Forum</Link>
+    <Link href="/booking/index.html">Booking</Link>
+  </div>

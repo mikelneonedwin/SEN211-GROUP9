@@ -1,0 +1,9 @@
+---
+type Props = Omit<astroHTML.JSX.AnchorHTMLAttributes, "class"> & {
+    href: string;
+};
+const props = Astro.props;
+---
+<a {...props} class="font-medium text-white hover:text-primary hover:underline hover:underline-offset-2">
+    <slot/>
+</a>
