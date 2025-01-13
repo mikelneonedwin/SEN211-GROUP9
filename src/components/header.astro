@@ -21,3 +21,14 @@ import NavLinks from "./navlinks.astro";
   </div>
 </div>
 <NavLinks class="md:hidden flex justify-evenly items-center mt-4 -mb-6 dent" />
+<script is:inline>
+  const indexRegex = /\/index\.html$/;
+  const pagePathName = location.pathname.replace(indexRegex, "");
+  document.querySelectorAll("a.nav-link").forEach((link) => {
+    const linkPathName = new URL(link.href).pathname.replace(indexRegex, "");
+    if(linkPathName === pagePathName) {
+      link.classList.remove("text-white");
+      link.classList.add("text-primary");
+    }
+  });
+</script>
